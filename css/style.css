@@ -25,6 +25,11 @@ body {
     overflow-x: hidden;
 }
 
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 .dark-theme {
     background-color: var(--dark-bg);
     color: var(--light-text);
@@ -44,6 +49,10 @@ a:hover {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
+}
+
+.container, .section-container, .nav-container {
+    overflow-x: hidden;
 }
 
 .section {
@@ -116,9 +125,19 @@ a:hover {
 }
 
 .logo a {
-    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 3rem;
     font-weight: 700;
     color: white;
+    font-family: 'Alumni Sans Pinstripe', sans-serif;
+}
+
+.logo-img {
+    height: 1em; /* Isso fará a imagem ter a mesma altura do texto */
+    width: auto;
+    vertical-align: middle;
 }
 
 .nav-menu {
@@ -135,6 +154,8 @@ a:hover {
 .nav-menu a {
     color: white;
     font-weight: 500;
+    font-size: 2rem;
+    font-family: 'Alumni Sans Pinstripe', sans-serif;
     transition: all 0.3s ease;
 }
 
@@ -459,15 +480,15 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.1);
     transition: var(--transition);
 }
 
 .social-links a:hover {
-    background: var(--primary-color);
+    background: #e48787;
     transform: translateY(-3px);
 }
 

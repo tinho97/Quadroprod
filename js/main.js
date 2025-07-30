@@ -1,3 +1,13 @@
+// Bloqueio de scroll horizontal
+document.body.addEventListener('touchmove', function(e) {
+    if (e.touches.length > 1) e.preventDefault();
+}, { passive: false });
+
+window.addEventListener('wheel', function(e) {
+    if (e.deltaX !== 0) e.preventDefault();
+}, { passive: false });
+
+
 // main.js - Versão segura
 document.addEventListener('DOMContentLoaded', function() {
     // =============================================
