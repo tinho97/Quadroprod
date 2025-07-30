@@ -125,19 +125,18 @@ a:hover {
 }
 
 .logo a {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 3rem;
+    font-size: 2rem; /* Reduzi de 3rem para 2rem */
     font-weight: 700;
     color: white;
     font-family: 'Alumni Sans Pinstripe', sans-serif;
+    display: flex; /* Organiza logo e texto em linha */
+    align-items: center; /* Centraliza verticalmente */
+    gap: 10px; /* Espaço entre a logo e o texto */
 }
 
 .logo-img {
-    height: 1em; /* Isso fará a imagem ter a mesma altura do texto */
-    width: auto;
-    vertical-align: middle;
+    height: 1em; /* Altura igual à do texto (2rem) */
+    width: auto; /* Largura proporcional */
 }
 
 .nav-menu {
