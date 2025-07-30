@@ -125,8 +125,8 @@ a:hover {
 }
 
 .logo a {
-    font-size: 2rem; /* Reduzi de 3rem para 2rem */
-    font-weight: 700;
+    font-size: 3rem; /* Reduzi de 3rem para 2rem */
+    font-weight: 600;
     color: white;
     font-family: 'Alumni Sans Pinstripe', sans-serif;
     display: flex; /* Organiza logo e texto em linha */
