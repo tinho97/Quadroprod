@@ -761,13 +761,11 @@ img {
 .gallery-carousel {
     width: 100%;
     overflow: hidden;
-    position: relative;
 }
 
 .carousel-container {
     width: 100%;
     overflow: hidden;
-    position: relative;
     border-radius: 8px;
 }
 
