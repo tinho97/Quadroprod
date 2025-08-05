@@ -23,6 +23,7 @@ body {
     color: var(--light-text);
     line-height: 1.6;
     overflow-x: hidden;
+    width: 100%;
 }
 
 html, body {
@@ -669,3 +670,200 @@ img {
     height: auto;
 }
 
+
+/* Estilos específicos para páginas de projeto */
+
+.project-hero {
+    position: relative;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.project-hero-content {
+    position: relative;
+    z-index: 2;
+    color: white;
+    padding: 0 20px;
+}
+
+.project-hero-content h1 {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+    font-family: 'Alumni Sans Pinstripe', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.project-subtitle {
+    font-size: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+    font-weight: 300;
+}
+
+.project-description-section {
+    padding: 80px 0;
+    background-color: var(--darker-bg);
+}
+
+.project-description-content {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.project-video-section {
+    padding: 80px 0;
+    background-color: var(--dark-bg);
+}
+
+.project-specs-section {
+    padding: 80px 0;
+    background-color: var(--darker-bg);
+}
+
+.specs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.spec-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 25px;
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+.spec-item:hover {
+    background: rgba(255, 77, 77, 0.1);
+    transform: translateY(-5px);
+}
+
+.spec-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.project-gallery-section {
+    padding: 80px 0;
+    background-color: var(--dark-bg);
+}
+
+.gallery-carousel {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    border-radius: 8px;
+}
+
+.carousel-slide {
+    display: flex;
+    width: 100%;
+    height: 500px; /* Altura fixa para todas as imagens */
+    transition: transform 0.5s ease;
+}
+
+.carousel-slide img {
+    min-width: 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    flex-shrink: 0;
+    transition: transform 0.5s ease;
+}
+
+.carousel-prev, .carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.carousel-prev:hover, .carousel-next:hover {
+    background: var(--primary-color);
+}
+
+.carousel-prev {
+    left: 20px;
+}
+
+.carousel-next {
+    right: 20px;
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.carousel-dots .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.carousel-dots .dot.active {
+    background: var(--primary-color);
+    transform: scale(1.2);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .project-hero-content h1 {
+        font-size: 3rem;
+    }
+    
+    .project-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .specs-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .carousel-slide img {
+        height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-hero-content h1 {
+        font-size: 2.2rem;
+    }
+    
+    .specs-grid {
+        grid-template-columns: 1fr;
+    }
+}
