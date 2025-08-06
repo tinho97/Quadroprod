@@ -331,7 +331,7 @@ a:hover {
 
 .view-project {
     padding: 10px 20px;
-    background: var(--primary-color);
+    background: var(none);
     color: white;
     border-radius: 30px;
     font-weight: 600;
@@ -785,36 +785,6 @@ img {
     transition: transform 0.5s ease;
 }
 
-.carousel-prev, .carousel-next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 15px;
-    cursor: pointer;
-    z-index: 10;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: var(--transition);
-}
-
-.carousel-prev:hover, .carousel-next:hover {
-    background: var(--primary-color);
-}
-
-.carousel-prev {
-    left: 20px;
-}
-
-.carousel-next {
-    right: 20px;
-}
 
 .carousel-dots {
     display: flex;
