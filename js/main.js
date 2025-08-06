@@ -120,3 +120,10 @@ function handleSubmit(event) {
     window.open(`https://wa.me/+5521991444917?text=${encodedText}`, '_blank');
   }
 }
+
+// Atualizar links de idioma na página libertadores2025.html
+document.querySelectorAll('.back-button [data-lang]').forEach(el => {
+    el.style.display = 'none';
+});
+const savedLang = localStorage.getItem('quadro-lang') || 'pt';
+document.querySelector(`.back-button [data-lang="${savedLang}"]`).style.display = '';

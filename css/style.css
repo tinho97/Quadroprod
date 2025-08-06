@@ -382,6 +382,29 @@ a:hover {
     transition: all 0.5s ease;
 }
 
+.upcoming-image a {
+    display: block;
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+.upcoming-image a:hover {
+    opacity: 0.9;
+}
+
+.upcoming-card:hover .upcoming-image a {
+    transform: scale(1.02);
+}
+
+.upcoming-description a {
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.upcoming-description a:hover {
+    color: #ffffff !important;
+}
+
 .upcoming-card:hover .upcoming-image img {
     transform: scale(1.05);
 }
