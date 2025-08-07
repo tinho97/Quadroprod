@@ -1,12 +1,14 @@
 /* Estilos Gerais */
 :root {
-    --primary-color: #ff4d4d;
-    --secondary-color: #6c63ff;
+    --primary-color: #c9a66b;
+    --secondary-color: #ffffff;
     --dark-bg: #000000;
     --darker-bg: #0a0a0a;
     --light-text: #f5f5f5;
     --dark-text: #333;
     --gray-text: #aaa;
+    --gold-light: #d8b87c;
+    --gold-dark: #b5955d;
     --section-padding: 80px 0;
     --transition: all 0.3s ease;
 }
@@ -18,7 +20,7 @@
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Playfair Display', serif; /* Texto principal */
     background-color: var(--dark-bg);
     color: var(--light-text);
     line-height: 1.6;
@@ -72,8 +74,10 @@ a:hover {
     margin-bottom: 2.5rem;
     position: relative;
     display: inline-block;
+    font-family: 'Cinzel', serif;
     font-weight: 700;
-    letter-spacing: -0.5px;
+    letter-spacing: 1px;
+    color: var(--primary-color);
 }
 
 .section-title::after {
@@ -83,7 +87,7 @@ a:hover {
     left: 0;
     width: 60px;
     height: 4px;
-    background: #ff4d4d;
+    background: var(--primary-color);
     border-radius: 2px;
 }
 
@@ -91,6 +95,7 @@ a:hover {
     display: inline-block;
     padding: 12px 30px;
     background: var(--primary-color);
+    font-family: 'Cinzel', serif;
     color: white;
     border-radius: 30px;
     font-weight: 600;
@@ -101,9 +106,10 @@ a:hover {
 }
 
 .cta-button:hover {
-    background: #ffffff;
+    background: var(--gold-light);
+    color: #000000;
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(255, 77, 77, 0.2);
+    box-shadow: 0 10px 20px rgba(201, 166, 107, 0.3);
 }
 
 /* Menu Principal Simplificado */
@@ -224,6 +230,8 @@ a:hover {
     left: 50%;
     transform: translateX(-50%);
     color: rgba(255,255,255,0.7);
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
     font-size: 1.2rem;
     text-align: center;
     animation: fadeInOut 2s infinite;
@@ -265,7 +273,8 @@ a:hover {
 .project-description {
     margin: 20px 0;
     font-size: 1.1rem;
-    line-height: 1.8;
+    line-height: 1.7;
+    font-family: 'Playfair Display', serif;
 }
 
 .projects-grid {
@@ -281,11 +290,12 @@ a:hover {
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     transition: var(--transition);
+    color: var(--primary-color);      /* Dourado */
 }
 
 .project-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 15px 30px rgba(201, 166, 107, 0.1); /* Sombra dourada suave */
 }
 
 .project-image {
@@ -321,6 +331,7 @@ a:hover {
     opacity: 0;
     transition: var(--transition);
     transition: transform 0.5s ease, filter 0.5s ease;
+    color: var(--primary-color);      /* Dourado */
 }
 
 .project-card:hover .project-overlay {
@@ -335,11 +346,19 @@ a:hover {
     color: white;
     border-radius: 30px;
     font-weight: 600;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 1px;
+}
+
+.view-project:hover{
+    color: var(--primary-color);      /* Dourado */
 }
 
 .view-all {
     display: inline-block;
+    color: var(--gold-light);
     margin-top: 30px;
+    font-family: 'Cinzel', serif;
     font-weight: 600;
     letter-spacing: 1px;
     border-bottom: 2px solid var(--primary-color);
@@ -364,6 +383,7 @@ a:hover {
     overflow: hidden;
     transition: all 0.3s ease;
 }
+
 
 .upcoming-card:hover {
     transform: translateY(-10px);
@@ -396,6 +416,11 @@ a:hover {
     transform: scale(1.02);
 }
 
+.upcoming-description {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.7;
+}
+
 .upcoming-description a {
     font-weight: 600;
     transition: all 0.3s ease;
@@ -420,7 +445,7 @@ a:hover {
 }
 
 .upcoming-date {
-    color: #ff4d4d;
+    color: var(--primary-color);
     font-weight: 500;
     margin-bottom: 15px;
 }
@@ -448,6 +473,8 @@ a:hover {
 .about-text p {
     margin-bottom: 20px;
     font-size: 1.1rem;
+    font-family: 'Playfair Display', serif;
+    line-height: 1.7;
 }
 
 .about-image {
@@ -475,6 +502,11 @@ a:hover {
 
 .contact-info {
     flex: 1;
+}
+
+.contact-info p {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.7;
 }
 
 .contact-details {
@@ -511,7 +543,6 @@ a:hover {
 }
 
 .social-links a:hover {
-    background: #e48787;
     transform: translateY(-3px);
 }
 
@@ -552,7 +583,7 @@ a:hover {
 }
 
 .contact-form button:hover {
-    background: #ff3333;
+    background: var(--gold-light);
 }
 
 /* Rodapé */
@@ -766,8 +797,8 @@ img {
 }
 
 .spec-item:hover {
-    background: rgba(255, 77, 77, 0.1);
-    transform: translateY(-5px);
+    background: rgba(201, 166, 107, 0.05);       /* Fundo dourado muito suave */
+    border: 1px solid rgba(201, 166, 107, 0.3);  /* Borda dourada sutil */
 }
 
 .spec-item h3 {
