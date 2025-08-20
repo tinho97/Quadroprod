@@ -260,6 +260,40 @@
         </div>
     </section>
 
+    <!-- Pop-up Libertadores 2025 -->
+    <div class="popup-overlay" id="libertadoresPopup">
+        <div class="libertadores-popup">
+            <div class="popup-close" id="closePopup">
+                <i class="fas fa-times"></i>
+            </div>
+            
+            <div class="popup-content">
+                <div class="popup-image">
+                    <img src="images/Peru_Bandeira.png" alt="Libertadores 2025">
+                </div>
+                
+                <div class="popup-text">
+                    <h2 class="popup-title">Libertadores 2025</h2>
+                    <p class="popup-subtitle">Documentando a Paixão dos torcedores pelo Futebol</p>
+                    <p class="popup-description">
+                        Para a Libertadores 2025, em Lima, propomos um documentário intimista que captura a essência humana por trás deste evento esportivo. 
+                        Junte-se a nós nesta jornada épica!
+                    </p>
+                    <a href="libertadores2025.html" class="popup-cta">Saiba Mais</a>
+                </div>
+            </div>
+            
+            <div class="popup-footer">
+                <p>Uma produção Quadro - Capturando momentos épicos</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botão de teste (remova após os testes) -->
+    <button onclick="showPopup()" style="position:fixed; bottom:20px; right:20px; z-index:10000; padding:10px; background:#c9a66b; color:black; border:none; border-radius:5px; cursor:pointer; font-family: 'Cinzel', serif;">
+        Testar Pop-up
+    </button>
+
     <!-- Rodapé -->
     <footer>
         <p>&copy; 2023 QUADROPROD. Todos os direitos reservados.</p>
@@ -269,6 +303,7 @@
     <script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="js/main.js"></script>
+    <script src="js/popup.js"></script> <!-- Novo arquivo popup -->
     <script src="js/language.js"></script>
 </body>
 </html>
