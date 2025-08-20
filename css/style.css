@@ -1,3 +1,23 @@
+/* CORREÇÃO DO SCROLL LATERAL - SOLUÇÃO DEFINITIVA */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    position: relative;
+    width: 100%;
+}
+
+/* Garante que todos os elementos respeitem os limites da tela */
+.container, .section-container, .nav-container, .hero, .projects-grid, .upcoming-grid {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Remove qualquer margem ou padding que possa causar scroll horizontal */
+* {
+    box-sizing: border-box;
+}
+
+
 /* Estilos Gerais */
 :root {
     --primary-color: #c9a66b;
@@ -891,15 +911,15 @@ img {
 }
 
 /* ==================== */
-/* POP-UP LIBERTADORES  */
+/* POP-UP LIBERTADORES - SEM SCROLL LATERAL */
 /* ==================== */
 
 .popup-overlay {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw; /* Usa viewport width para garantir que não ultrapasse */
+    height: 100vh; /* Usa viewport height */
     background-color: rgba(0, 0, 0, 0.85);
     display: flex;
     justify-content: center;
@@ -908,8 +928,9 @@ img {
     opacity: 0;
     visibility: hidden;
     transition: all 0.4s ease;
-    padding: 15px; /* Adicionado padding para mobile */
-    box-sizing: border-box; /* Garante que o padding não some à largura */
+    padding: 15px;
+    box-sizing: border-box;
+    overflow: hidden; /* Garante que nada dentro do overlay cause scroll */
 }
 
 .popup-overlay.active {
@@ -919,24 +940,23 @@ img {
 
 .libertadores-popup {
     width: 100%;
-    max-width: 800px;
-    max-height: 90vh; /* Limita a altura máxima */
+    max-width: min(800px, 90vw); /* Não passa de 800px nem de 90% da tela */
+    max-height: min(600px, 80vh); /* Limites de altura */
     background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
     border: 2px solid #c9a66b;
     border-radius: 12px;
-    overflow: hidden;
+    overflow: auto; /* Scroll apenas interno */
     position: relative;
     box-shadow: 0 10px 40px rgba(201, 166, 107, 0.2);
     transform: scale(0.9);
     transition: transform 0.4s ease;
-    display: flex;
-    flex-direction: column;
 }
 
 .popup-overlay.active .libertadores-popup {
     transform: scale(1);
 }
 
+/* Resto do CSS do pop-up mantido igual */
 .popup-close {
     position: absolute;
     top: 10px;
@@ -966,7 +986,6 @@ img {
 .popup-content {
     display: flex;
     flex-direction: column;
-    overflow-y: auto; /* Permite scroll interno se necessário */
 }
 
 .popup-image {
@@ -974,6 +993,7 @@ img {
     overflow: hidden;
     position: relative;
     background: linear-gradient(45deg, #1a1a1a, #2a2a2a);
+    max-width: 100%; /* Garante que não ultrapasse */
 }
 
 .popup-image img {
@@ -982,30 +1002,22 @@ img {
     object-fit: cover;
 }
 
-.popup-image::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 60%;
-    background: linear-gradient(to top, rgba(10, 10, 10, 0.9) 0%, transparent 100%);
-}
-
 .popup-text {
     padding: 20px;
     text-align: center;
-    overflow-y: auto; /* Permite scroll se o conteúdo for muito longo */
+    max-width: 100%; /* Garante que não ultrapasse */
 }
 
 .popup-title {
     font-family: 'Cinzel', serif;
     color: #c9a66b;
-    font-size: 1.8rem;
+    font-size: clamp(1.5rem, 5vw, 2.2rem); /* Tamanho responsivo */
     margin-bottom: 12px;
     text-transform: uppercase;
     letter-spacing: 1px;
     line-height: 1.2;
+    max-width: 100%; /* Garante que não ultrapasse */
+    overflow-wrap: break-word; /* Quebra palavras longas */
 }
 
 .popup-subtitle {
@@ -1057,28 +1069,19 @@ img {
     font-size: 0.8rem;
 }
 
-/* Responsividade para o pop-up */
+/* ÚNICA media query realmente necessária */
 @media (min-width: 768px) {
-    .popup-overlay {
-        padding: 20px;
-    }
-    
     .popup-content {
         flex-direction: row;
-        max-height: none;
     }
     
     .popup-image {
         height: auto;
         width: 45%;
-        max-height: none;
     }
     
     .popup-text {
         width: 55%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
         text-align: left;
         padding: 30px;
     }
@@ -1086,91 +1089,15 @@ img {
     .popup-title {
         font-size: 2.2rem;
     }
-    
-    .popup-subtitle {
-        font-size: 1.2rem;
-    }
-    
-    .popup-description {
-        font-size: 1rem;
-    }
-    
-    .popup-close {
-        top: 15px;
-        right: 15px;
-        width: 40px;
-        height: 40px;
-    }
-    
-    .popup-close i {
-        font-size: 20px;
-    }
 }
 
+/* Apenas ajustes de texto para mobile muito pequeno */
 @media (max-width: 480px) {
-    .popup-overlay {
-        padding: 10px;
-    }
-    
-    .libertadores-popup {
-        max-height: 85vh; /* Um pouco menos de altura em mobile muito pequeno */
-    }
-    
     .popup-title {
         font-size: 1.5rem;
     }
     
-    .popup-subtitle {
-        font-size: 1rem;
-        margin-bottom: 15px;
-    }
-    
     .popup-text {
         padding: 15px;
-    }
-    
-    .popup-description {
-        font-size: 0.9rem;
-        margin-bottom: 20px;
-    }
-    
-    .popup-cta {
-        padding: 10px 20px;
-        font-size: 0.85rem;
-    }
-    
-    .popup-image {
-        height: 150px;
-    }
-    
-    .popup-close {
-        top: 8px;
-        right: 8px;
-        width: 30px;
-        height: 30px;
-    }
-    
-    .popup-close i {
-        font-size: 16px;
-    }
-}
-
-/* Dispositivos muito pequenos (iPhone SE, etc) */
-@media (max-width: 320px) {
-    .popup-title {
-        font-size: 1.3rem;
-    }
-    
-    .popup-subtitle {
-        font-size: 0.9rem;
-    }
-    
-    .popup-description {
-        font-size: 0.85rem;
-    }
-    
-    .popup-cta {
-        padding: 8px 16px;
-        font-size: 0.8rem;
     }
 }

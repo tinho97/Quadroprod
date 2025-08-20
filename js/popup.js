@@ -1,63 +1,48 @@
-// popup.js - Controlador do Pop-up Libertadores 2025
-document.addEventListener('DOMContentLoaded', function() {
-    // Verificar se estamos na página index (onde o pop-up deve aparecer)
-    if (!document.getElementById('libertadoresPopup')) return;
-    
+// popup.js - Versão Simplificada e Robustá
+function initPopup() {
     const popup = document.getElementById('libertadoresPopup');
+    if (!popup) return;
+    
     const closeBtn = document.getElementById('closePopup');
     
-    console.log('Popup script carregado'); // Para debug
-    
-    // Função para mostrar o popup
     function showPopup() {
         popup.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Impede scroll quando popup está aberto
+        document.body.style.overflow = 'hidden';
+        document.documentElement.style.overflow = 'hidden';
     }
     
-    // Função para esconder o popup
     function hidePopup() {
         popup.classList.remove('active');
-        document.body.style.overflow = ''; // Restaura scroll
+        document.body.style.overflow = '';
+        document.documentElement.style.overflow = '';
     }
     
-    // Verificar se já foi mostrado antes (usando sessionStorage para teste)
-    // Mude para localStorage depois que estiver funcionando
-    if (!sessionStorage.getItem('popupLibertadoresShown')) {
-        // Mostrar pop-up após 3 segundos
+    // Verificar e mostrar popup
+    if (!sessionStorage.getItem('popupShown')) {
         setTimeout(showPopup, 3000);
-        sessionStorage.setItem('popupLibertadoresShown', 'true');
+        sessionStorage.setItem('popupShown', 'true');
     }
     
-    // Fechar pop-up ao clicar no botão
-    if (closeBtn) {
-        closeBtn.addEventListener('click', hidePopup);
-    }
+    // Event listeners
+    if (closeBtn) closeBtn.addEventListener('click', hidePopup);
     
-    // Fechar pop-up ao clicar fora do conteúdo
     popup.addEventListener('click', function(e) {
-        if (e.target === popup) {
-            hidePopup();
-        }
+        if (e.target === popup) hidePopup();
     });
     
-    // Fechar pop-up com a tecla ESC
     document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && popup.classList.contains('active')) {
-            hidePopup();
-        }
+        if (e.key === 'Escape') hidePopup();
     });
     
-    // Debug: Expor funções globalmente para teste
+    // Para testes
     window.showPopup = showPopup;
     window.hidePopup = hidePopup;
-});
-
-function showPopup() {
-    popup.classList.add('active');
-    document.body.style.overflow = 'hidden'; // Impede scroll da página
 }
 
-function hidePopup() {
-    popup.classList.remove('active');
-    document.body.style.overflow = ''; // Restaura scroll
+// Inicializar quando o DOM estiver pronto
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initPopup);
+} else {
+    initPopup();
 }
+
