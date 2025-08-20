@@ -120,6 +120,60 @@
             border-radius: 4px;
             margin-bottom: 20px;
         }
+
+                /* Estilos para cards de trabalhos antigos */
+        .work-card {
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .work-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(201, 166, 107, 0.15);
+        }
+
+        .work-image {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .work-image img {
+            transition: transform 0.5s ease;
+        }
+
+        .work-card:hover .work-image img {
+            transform: scale(1.05);
+        }
+
+        .work-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .work-card:hover .work-overlay {
+            opacity: 1;
+        }
+
+        /* Responsividade para a seção de trabalhos */
+        @media (max-width: 768px) {
+            .specs-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .work-card {
+                margin-bottom: 20px;
+            }
+        }
     </style>
 </head>
 <body class="dark-theme coppola-theme">
@@ -173,14 +227,14 @@
             <div class="credibility-badge">
                 <h3 class="coppola-highlight" style="margin-bottom: 10px;">NOSSA TRAJETÓRIA</h3>
                 <p class="coppola-text" style="margin-bottom: 0;">
-                    Apesar de sermos uma produtora jovem, já cobrimos duas finais continentais com nossa abordagem única. Nosso último projeto alcançou <span class="coppola-highlight">40 mil pessoas</span> e para 2025 estimamos <span class="coppola-highlight">+100 mil visualizações</span> com nossa rede em crescimento.
+                    Nós cobrimos duas finais continentais com nossa abordagem única. Nosso último projeto alcançou <span class="coppola-highlight">40 mil pessoas</span> e para 2025 estimamos <span class="coppola-highlight">+100 mil visualizações</span> com nossa rede em crescimento.
                 </p>
             </div>
             
             <h2 class="section-title coppola-title">NOSSA PROPOSTA</h2>
             <div class="project-description-content coppola-text">
                 <p>
-                    Somos uma equipe <span class="coppola-highlight">compacta e ágil</span>, mas com olhar cinematográfico inspirado nos grandes mestres como Coppola. Para a Libertadores 2025 em Lima, propomos um documentário intimista que <span class="coppola-highlight">captura a essência humana</span> por trás deste evento esportivo.
+                    Para a <span class="coppola-highlight">Libertadores 2025</span>, em Lima, propomos um documentário intimista que <span class="coppola-highlight">captura a essência humana</span> por trás deste evento esportivo.
                 </p>
                 <br>
                 <p>
@@ -196,21 +250,12 @@
             <h2 class="section-title coppola-title">O QUE VAMOS ENTREGAR</h2>
             
             <div class="specs-grid">
-                <div class="spec-item vintage-border">
-                    <h3 class="coppola-highlight">DOCUMENTÁRIO PRINCIPAL</h3>
-                    <p class="coppola-text">(15-20 minutos) Visão artística da jornada até a final, focado nas histórias humanas por trás do evento.</p>
-                </div>
-                
+                                
                 <div class="spec-item vintage-border">
                     <h3 class="coppola-highlight">SÉRIE DE MINI-DOCS</h3>
                     <p class="coppola-text">(3-5 episódios de 5 minutos cada) Retratos rápidos de personagens marcantes encontrados durante a cobertura.</p>
                 </div>
-                
-                <div class="spec-item vintage-border">
-                    <h3 class="coppola-highlight">COBERTURA SOCIAL</h3>
-                    <p class="coppola-text">Conteúdo diário para Instagram e TikTok durante os dias do evento em Lima.</p>
-                </div>
-                
+                                
                 <div class="spec-item vintage-border">
                     <h3 class="coppola-highlight">MATERIAL BRUTO</h3>
                     <p class="coppola-text">Para patrocinadores que desejem criar seu próprio conteúdo a partir das imagens.</p>
@@ -230,35 +275,12 @@
             <div class="specs-grid">
                 <!-- Patrocínio Principal -->
                 <div class="sponsorship-card">
-                    <h3 class="sponsorship-tier">PATROCINADOR PRINCIPAL</h3>
+                    <h3 class="sponsorship-tier">PATROCINE A QUADRO!</h3>
                     <ul class="sponsorship-benefits coppola-text">
                         <li>Destaque no documentário principal (abertura e créditos)</li>
                         <li>5 posts dedicados nas redes sociais</li>
                         <li>Menção em todos os stories durante a viagem</li>
                         <li>Logotipo em todos os vídeos do projeto</li>
-                        <li>2 ingressos para o jogo (sujeito a disponibilidade)</li>
-                    </ul>
-                </div>
-                
-                <!-- Patrocínio de Apoio -->
-                <div class="sponsorship-card">
-                    <h3 class="sponsorship-tier">PATROCINADOR DE APOIO</h3>
-                    <ul class="sponsorship-benefits coppola-text">
-                        <li>Logotipo nos créditos do documentário</li>
-                        <li>3 posts nas redes sociais</li>
-                        <li>Menção em 5 stories durante a viagem</li>
-                        <li>1 ingresso para o jogo (sujeito a disponibilidade)</li>
-                    </ul>
-                </div>
-                
-                <!-- Fornecedor Oficial -->
-                <div class="sponsorship-card">
-                    <h3 class="sponsorship-tier">FORNECEDOR OFICIAL</h3>
-                    <ul class="sponsorship-benefits coppola-text">
-                        <li>Troca de produtos/serviços por visibilidade</li>
-                        <li>Menção como fornecedor oficial nos créditos</li>
-                        <li>Uso do produto visível no documentário</li>
-                        <li>2 posts nas redes sociais</li>
                     </ul>
                 </div>
             </div>
@@ -299,6 +321,52 @@
         </div>
     </section>
 
+    <!-- Seção de Trabalhos Antigos -->
+    <section class="coppola-section">
+        <div class="section-container">
+            <h2 class="section-title coppola-title">CONHEÇA NOSSOS TRABALHOS</h2>
+            <div class="coppola-text" style="margin-bottom: 30px;">
+                <p>Confira nossos projetos anteriores que demonstram nossa capacidade de capturar momentos épicos:</p>
+            </div>
+
+            <div class="specs-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+                <!-- Glorioso Eterno -->
+                <div class="sponsorship-card" style="display: flex; flex-direction: column; height: 100%;">
+                    <div class="upcoming-image" style="height: 200px; overflow: hidden; border-radius: 4px 4px 0 0;">
+                        <a href="glorioso_eterno.html">
+                            <img src="images/IMG_8859.jpg" alt="Glorioso Eterno - Torcedor beijando escudo" style="width: 100%; height: 100%; object-fit: cover;">
+                        </a>
+                    </div>
+                    <div style="padding: 20px; text-align: center; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+                        <h3 class="sponsorship-tier" style="margin-bottom: 10px; line-height: 1.2; hyphens: auto;">
+                            <a href="glorioso_eterno.html" class="view-project" data-lang="pt" style="color: #c9a66b; text-decoration: none; font-size: 1.3rem; word-wrap: break-word;">GLORIOSO ETERNO</a>
+                        </h3>
+                        <p class="coppola-text" style="font-size: 0.9rem; margin: 0; line-height: 1.4;">
+                            Documentário da final da Libertadores 2024 em Buenos Aires
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- 1943 -->
+                <div class="sponsorship-card" style="display: flex; flex-direction: column; height: 100%;">
+                    <div class="upcoming-image" style="height: 200px; overflow: hidden; border-radius: 4px 4px 0 0;">
+                        <a href="1943.html">
+                            <img src="images/276-DSC06798.jpg" alt="1943 - Torcedores com sinalizadores" style="width: 100%; height: 100%; object-fit: cover;">
+                        </a>
+                    </div>
+                    <div style="padding: 20px; text-align: center; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+                        <h3 class="sponsorship-tier" style="margin-bottom: 10px; line-height: 1.2;">
+                            <a href="1943.html" class="view-project" data-lang="pt" style="color: #c9a66b; text-decoration: none; font-size: 1.3rem;">1943</a>
+                        </h3>
+                        <p class="coppola-text" style="font-size: 0.9rem; margin: 0; line-height: 1.4;">
+                            A final da Libertadores 2023 vista de fora do estádio
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Seção de Contato Personalizada -->
     <section class="coppola-section">
         <div class="section-container">
@@ -306,22 +374,12 @@
             
             <div class="contact-content">
                 <div class="contact-info">
-                    <p class="coppola-text">Somos transparentes sobre nossos números e abertos para construir parcerias que façam sentido para ambos os lados.</p>
-                    
                     <div class="contact-details">
-                        <p><i class="fas fa-envelope"></i> patrocinios@quadroprod.com</p>
+                        <p><i class="fas fa-envelope"></i> quadroprod23@gmail.com</p>
                         <p><i class="fas fa-phone"></i> +55 21 97021-7713</p>
                         <p><i class="fas fa-user"></i> Lucas ou Victor - Sócios da Quadro</p>
                     </div>
                     
-                    <div class="coppola-text" style="margin-top: 20px;">
-                        <p>Também podemos:</p>
-                        <ul style="padding-left: 20px;">
-                            <li>Criar um pacote personalizado para sua marca</li>
-                            <li>Apresentar cases dos nossos projetos anteriores</li>
-                            <li>Marcar uma reunião para discutir ideias</li>
-                        </ul>
-                    </div>
                 </div>
                 
                 <div class="contact-form">
@@ -336,7 +394,7 @@
             </div>
         </div>
     </section>
-
+    
     <!-- Rodapé -->
     <footer>
         <p>&copy; 2023 QUADROPROD. Todos os direitos reservados.</p>
