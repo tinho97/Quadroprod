@@ -1076,7 +1076,7 @@ img {
     }
     
     .popup-image {
-        height: auto;
+        height: 300px;
         width: 45%;
     }
     
